@@ -44,27 +44,27 @@ echo "140 16.5 crescent (red)" | gmt pstext -R -J -F+f10p,Times-Roman,white -O -
 gmt psxy -R -J -Sv0.15i+bc+ea -Gyellow -W0.5p,yellow -O -K << EOF >> $ps
 140 18 20 3c
 EOF
-# annotation
+# Step-10. label annotation
 gmt psxy -R -J -Wthick -O -K \
     -Sqn1:+f12p,Times-Roman,white+l"Study Area"+v+c5p+pthick,white+o << EOF >> $ps
 137 7
 152 7
 EOF
-# круг внутренний зеленый
-#gmt psxy -R -J -Sc -W0.5p,green -O -K << EOF >> $ps
-#140 18 3c
-#EOF
-# круг внутренний желтый
-#gmt psxy -R -J -Sc -W0.5p,yellow -O -K << EOF >> $ps
-#140 18 4.5c
-#EOF
-# круг
+# # Step-11. круг большой белый
 gmt psxy -R -J -Sc -W0.5p,white -O -K << EOF >> $ps
 140 18 6c
 EOF
-# math angle arc of MT
+# круг внутренний средний желтый
+#gmt psxy -R -J -Sc -W0.5p,yellow -O -K << EOF >> $ps
+#140 18 4.5c
+#EOF
+# круг внутренний маленький зеленый
+#gmt psxy -R -J -Sc -W0.5p,green -O -K << EOF >> $ps
+#140 18 3c
+#EOF
+# Step-12. math angle arc of the Mariana Trench
 gmt psxy -R -J -Sm0.7 -W1.5p,red -O -K -P << EOF >> $ps
 140 18 3 -98 65
 EOF
-# Step-10. Add GMT logo
+# Step-13. Add GMT logo
 gmt logo -Dx6.2/-2.2+o0.1i/0.1i+w2c -O >> $ps
