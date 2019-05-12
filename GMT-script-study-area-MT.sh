@@ -1,5 +1,5 @@
 #!/bin/sh
-# Purpose: study area red square on the shaded relief grid raster map ETOPO1 from 1 arc min (here: Mariana Trench)
+# Purpose: study area square + geometric arcs on the grid raster map ETOPO1 (here: Mariana Trench)
 # GMT modules: grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, pstext, psxy, gmtlogo
 # Step-1. Generate a file
 ps=BathymetryMT.ps
