@@ -1,6 +1,6 @@
 #!/bin/sh
-# Purpose: study area square + geometric arcs on the grid raster map ETOPO1 (here: Mariana Trench)
-# GMT modules: grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, pstext, psxy, gmtlogo
+# Purpose: Geometric shape (arc) of the Mariana Trench on the grid raster map ETOPO1.
+# GMT modules: grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, pstext, psxy, logo, psconvert
 # Step-1. Generate a file
 ps=BathymetryMT.ps
 # Step-2. Extract a subset of ETOPO1m for the Mariana Trench area
@@ -32,7 +32,8 @@ gmt psbasemap -R120/160/0/35 -JPoly/6.5i \
     -Tdx5.7i/0.5i+w0.3i+f2+l+o0.15i \
     -Lx5.5i/-0.5i+c50+w1000k+l"Polyconic projection. Scale (km)"+f \
     -Bxg4f2a4 -Byg4f2a4 \
-    -B+t"Geometric shape and location of the Mariana Trench. Bathymetry: 1 arc min ETOPO1 Global Relief Model" -U -O -K >> $ps
+    -B+t"Geometric shape and location of the Mariana Trench. Bathymetry: 1 arc min ETOPO1 Global Relief Model" \
+    -UBL/-15p/-35p -O -K >> $ps
 # Step-8. Add text labels
 echo "126 15 Philippine Trench" | gmt pstext -R -J -F+jTL+f10p,Times-Roman,white+a-70 -O -K >> $ps
 echo "132 20 Philippine Sea" | gmt pstext -R -J -F+f10p,Times-Roman,white -O -K >> $ps
@@ -61,3 +62,5 @@ gmt psxy -R -J -Sm0.7 -W1.5p,red -O -K -P << EOF >> $ps
 EOF
 # Step-12. Add GMT logo
 gmt logo -Dx6.2/-2.2+o0.1i/0.1i+w2c -O >> $ps
+# Step-13. Convert to image file using GhostScript (portrait orientation, 720 dpi)
+gmt psconvert BathymetryMT.ps -A0.2c -E720 -Tj -P -Z
