@@ -1,6 +1,7 @@
 #!/bin/sh
 # Purpose: Geometric shape (arc) of the Mariana Trench on the grid raster map ETOPO1.
 # GMT modules: gmtset, gmtdefaults, grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, pstext, psxy, logo, psconvert
+# Unix prog: echo
 # Step-1. Generate a file
 ps=BathymetryMT.ps
 # Step-2. GMT set up
